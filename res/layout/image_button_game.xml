@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  	>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/swordmaze_bgd" />
+
+    <ImageButton
+        android:id="@+id/button_nav_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="73dp"
+        android:src="@drawable/door_s" />
+
+    <ImageButton
+        android:id="@+id/button_nav_f"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_nav_b"
+        android:layout_marginBottom="37dp"
+        android:layout_toLeftOf="@+id/button_nav_r"
+        android:src="@drawable/door_n" />
+
+    <ImageButton
+        android:id="@+id/button_nav_r"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button_nav_b"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@+id/button_nav_b"
+        android:src="@drawable/door_e" />
+
+    <ImageButton
+        android:id="@+id/button_nav_l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button_nav_b"
+        android:layout_marginRight="14dp"
+        android:layout_toLeftOf="@+id/button_nav_b"
+        android:src="@drawable/door_w" />
+
+</RelativeLayout>
