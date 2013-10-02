@@ -1,7 +1,6 @@
 package com.aub.DungeonAdventure.navigation;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -13,11 +12,8 @@ public enum Direction {
 	}
 
 	public static enum Absolute{
-		North, East, South, West;	
+		North, East, South, West;
 	}
-	
-	private List<Direction.Absolute> abs = Arrays.asList(Direction.Absolute.values());
-	private List<Direction.Relative> rel = Arrays.asList(Direction.Relative.values());
 	
 	public static List<Absolute> getFromNESW(boolean[] nesw) {
 		ArrayList<Absolute> ret = new ArrayList<Absolute>();

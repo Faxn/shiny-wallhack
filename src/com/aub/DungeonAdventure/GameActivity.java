@@ -1,22 +1,19 @@
 package com.aub.DungeonAdventure;
 
-import java.util.HashMap;
 import java.util.Map;
-
-import com.aub.DungeonAdventure.navigation.Direction;
-import com.aub.DungeonAdventure.navigation.DungeonRoom;
-import com.aub.DungeonAdventure.navigation.dungeons.SimpleDungeon;
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
-import com.google.common.collect.Maps;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
+
+import com.aub.DungeonAdventure.navigation.Direction;
+import com.aub.DungeonAdventure.navigation.Direction.Absolute;
+import com.aub.DungeonAdventure.navigation.DungeonRoom;
+import com.aub.DungeonAdventure.navigation.dungeons.SimpleDungeon;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.ImmutableBiMap;
 
 /**
  *
@@ -30,15 +27,17 @@ public class GameActivity extends Activity implements OnClickListener {
 	private static final BiMap<Integer, Direction.Relative> zones;
 	private static final Map<Direction.Relative, Integer> zones1;
 	static{
-		zones = HashBiMap.create();
+		zones = new ImmutableBiMap.Builder<Integer, Direction.Relative>()		
+		.put(ID_F, Direction.Relative.Forward)
+		.put(ID_R, Direction.Relative.Right)
+		.put(ID_B, Direction.Relative.Back)
+		.put(ID_L, Direction.Relative.Left)
+		.build();
 		zones1 = zones.inverse();
-		zones.put(ID_F, Direction.Relative.Forward);
-		zones.put(ID_R, Direction.Relative.Right);
-		zones.put(ID_B, Direction.Relative.Back);
-		zones.put(ID_L, Direction.Relative.Left);
 	}
 			
     private DungeonRoom map;
+	private Absolute facing = Absolute.North;
 
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +58,10 @@ public class GameActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View arg0) {
-		switch(arg0.getId()){
-		case ID_F: map=map.move(Direction.Relative.Forward); break;
-		case ID_R: map=map.move(Direction.Relative.Right); break;
-		case ID_B: map=map.move(Direction.Relative.Back); break;
-		case ID_L: map=map.move(Direction.Relative.Left); break;
-		}
+		Direction.Relative doorClicked = zones.get(arg0.getId());
+		Direction.Absolute moveDir = Direction.facingTransform(doorClicked, facing);
+		map.move(moveDir);
+		facing = moveDir;		
 		render();
 	}
 	
@@ -72,7 +69,7 @@ public class GameActivity extends Activity implements OnClickListener {
 		for(int i : zones.keySet()){
 			findViewById(i).setVisibility(View.INVISIBLE);
 		}
-		for(Direction.Relative door : map.getDoors()){
+		for(Direction.Relative door : Direction.facingTransform(map.getDoors(), facing)){
 			findViewById(zones1.get(door)).setVisibility(View.VISIBLE);
 		}
 	}
