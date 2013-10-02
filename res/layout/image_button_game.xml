@@ -18,34 +18,33 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="73dp"
+        android:layout_marginBottom="34dp"
         android:src="@drawable/door_s" />
-
-    <ImageButton
-        android:id="@+id/button_nav_f"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button_nav_b"
-        android:layout_marginBottom="37dp"
-        android:layout_toLeftOf="@+id/button_nav_r"
-        android:src="@drawable/door_n" />
-
-    <ImageButton
-        android:id="@+id/button_nav_r"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button_nav_b"
-        android:layout_marginLeft="25dp"
-        android:layout_toRightOf="@+id/button_nav_b"
-        android:src="@drawable/door_e" />
 
     <ImageButton
         android:id="@+id/button_nav_l"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button_nav_b"
-        android:layout_marginRight="14dp"
+        android:layout_above="@+id/button_nav_b"
+        android:layout_marginRight="26dp"
         android:layout_toLeftOf="@+id/button_nav_b"
         android:src="@drawable/door_w" />
+
+    <ImageButton
+        android:id="@+id/button_nav_r"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button_nav_l"
+        android:layout_marginLeft="26dp"
+        android:layout_toRightOf="@+id/button_nav_b"
+        android:src="@drawable/door_e" />
+
+    <ImageButton
+        android:id="@+id/button_nav_f"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/button_nav_r"
+        android:src="@drawable/door_n" />
 
 </RelativeLayout>
