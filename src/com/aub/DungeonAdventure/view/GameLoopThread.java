@@ -1,6 +1,6 @@
 package com.aub.DungeonAdventure.view;
 
-import com.aub.DungeonAdventure.navigation.DungeonPosition;
+import com.aub.DungeonAdventure.navigation.DungeonRoom;
 
 import android.annotation.SuppressLint;
 import android.graphics.Canvas;
@@ -15,7 +15,7 @@ public class GameLoopThread extends Thread {
 	private GameplaySurfaceView gameSurface;
 	private long tick=0;
 
-	public GameLoopThread(DungeonPosition map, View v) {
+	public GameLoopThread(DungeonRoom map, View v) {
 		//this.surfaceHolder = sh;
 		this.gameSurface = gameSurface;
 	}

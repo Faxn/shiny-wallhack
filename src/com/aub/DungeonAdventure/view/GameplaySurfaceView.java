@@ -5,8 +5,8 @@ import java.util.List;
 import com.aub.DungeonAdventure.R;
 import com.aub.DungeonAdventure.R.drawable;
 import com.aub.DungeonAdventure.navigation.Direction;
-import com.aub.DungeonAdventure.navigation.DungeonPosition;
-import com.aub.DungeonAdventure.navigation.SimpleMap;
+import com.aub.DungeonAdventure.navigation.DungeonRoom;
+import com.aub.DungeonAdventure.navigation.dungeons.SimpleDungeon;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -35,7 +35,7 @@ public class GameplaySurfaceView extends SurfaceView implements Callback, OnKeyL
 	private java.util.Map<Direction.Relative, ZoneImage> zones;
 	
 	private GameLoopThread gameLoop;
-	private DungeonPosition map;
+	private DungeonRoom map;
 	
 	private Bitmap background;
 	
@@ -48,7 +48,7 @@ public class GameplaySurfaceView extends SurfaceView implements Callback, OnKeyL
 		
 		getHolder().addCallback(this);
 		setFocusable(true);
-		this.map=new SimpleMap();
+		this.map=new SimpleDungeon();
 		
 		zones = new java.util.HashMap<Direction.Relative, ZoneImage>();
 		zones.put(Direction.Relative.Forward, new ZoneImage(R.drawable.door_n, 0, 0));
