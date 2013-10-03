@@ -47,4 +47,12 @@
         android:layout_toLeftOf="@+id/button_nav_r"
         android:src="@drawable/door_n" />
 
+    <TextView
+        android:id="@+id/debug_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button_nav_l"
+        android:layout_alignTop="@+id/button_nav_l"
+        android:text="DEADBEEFDEADBEEF" />
+
 </RelativeLayout>

@@ -16,5 +16,7 @@ public interface DungeonRoom {
 	 */
 	public DungeonRoom move(Direction.Absolute d);
 	
+	public String getDebugInfo();
+	
 	
 }

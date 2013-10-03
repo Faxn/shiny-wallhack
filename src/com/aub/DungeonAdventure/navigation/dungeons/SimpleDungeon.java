@@ -2,13 +2,13 @@ package com.aub.DungeonAdventure.navigation.dungeons;
 
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import com.aub.DungeonAdventure.navigation.Direction;
 import com.aub.DungeonAdventure.navigation.DungeonRoom;
 
 public class SimpleDungeon implements DungeonRoom {
 
 	private int x, y;
-	private Direction.Absolute facing;
 	private boolean[][] doors = { { true, false, false },
 			{ false, true, true, true }, { true, true, true },
 			{ true, true, false, false }, { false, false, true },
@@ -51,8 +51,12 @@ public class SimpleDungeon implements DungeonRoom {
 			x-=1;
 			break;
 		}
-		facing=moveDir;
 		return this;
+	}
+
+	@SuppressLint("DefaultLocale") @Override
+	public String getDebugInfo() {
+		return String.format("x: %d; y:%d", x,y);
 	}
 
 }
